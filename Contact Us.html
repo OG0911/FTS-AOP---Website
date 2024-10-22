@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CONTACT US - FROM THE SOUTH (AOP)</title>
+    <link rel="stylesheet" href="Contact Us.css">
+    <link rel="icon" type="image/x-icon" href="Asset-5.png">
+</head>
+
+<body>
+    <div class="absolute">
+        <div class="absolute inset-0 justify-center">
+            <div class="bg-shape1 bg-teal opacity-50 bg-blur"></div> 
+            <div class="bg-shape2 bg-primary opacity-50 bg-blur"></div> 
+            <div class="bg-shape1 bg-purple opacity-50 bg-blur"></div> 
+        </div>
+      </div>
+    <div class="container">
+    <nav class="menu">
+    <ul>
+        <li><a href="Home.html">HOME</a></li>
+        <li><a href="Menu.html">MENU</a></li>
+        <li><a href="About Us.html">ABOUT US</a></li>
+        <li><a href="Reservations.html">RESERVATIONS</a></li>
+        <li><a href="Contact Us.html" style="color: white;">CONTACT US</a></li>
+    </ul>
+</nav>
+<div class="container2">
+    <section class="faq">
+        <h2>FREQUENTLY ASKED QUESTIONS</h2>
+        <div class="faq-item">
+            <p>CAN I PLACE AN ORDER ONLINE OR FOR TAKEAWAY?</p>
+            <p style="color:rgb(74, 74, 74)">     ~ Absolutely! You can place your order online through our website for quick and easy pickup. We also offer takeaway services if you prefer to enjoy your meal at home.</p>
+        </div>
+        <div class="faq-item">
+            <p>WHAT ARE YOUR OPENING HOURS?</p>
+            <p style="color:rgb(74, 74, 74)">     ~ We’re open seven days a week from 10:00 AM to 10:00 PM. On weekends and public holidays, we may have extended hours. Keep an eye on our social media pages for updates.</p>
+        </div>
+        <p>Telephone: (012) 345-6789 / (056) 789-0123 ------------------------------------------- E-Mail: aop_fromthesouth@gmail.com ----------------------------------- Address: 1115 Burnett Street, Hatfield Square Pretoria 0028</p>
+    </section>
+
+    <section class="contact-form">
+        <form action="#">
+            <div class="form-row1">
+                <label for="salutation">Salutation*</label>
+                <input type="radio" id="mr" name="salutation" value="Mr"> Mr
+                <input type="radio" id="ms" name="salutation" value="Ms"> Ms
+            </div>
+
+            <div class="form-row">
+                <input type="text" name="first-name" placeholder="First Name*" required>
+                <input type="text" name="last-name" placeholder="Last Name*" required>
+            </div>
+
+            <div class="form-row">
+                <input type="text" name="region" placeholder="Region*" required>
+                <input type="email" name="email" placeholder="Email*" required>
+            </div>
+
+            <div class="form-row">
+                <input type="text" name="subject" placeholder="Subject" required>
+            </div>
+
+            <div class="form-row">
+                <textarea name="message" placeholder="Message*" required></textarea>
+            </div>
+
+            <div class="form-row">
+                <button type="button">SUBMIT</button>
+            </div>
+        </form>
+    </section>
+</div>
+    <footer>
+            <p>Copyright &copy; 2024 From The South, An OG Production. All rights reserved.</p>
+        </footer>
+        <div class="social-media-icons">
+            <a href="https://www.facebook.com" target="_blank">
+                <img src="facebook.png" alt="Facebook" width="30" height="30">
+            </a>
+            <a href="https://www.twitter.com" target="_blank">
+                <img src="twitter.png" alt="Twitter" width="30" height="30">
+            </a>
+            <a href="https://www.instagram.com" target="_blank">
+                <img src="instagram.png" alt="Instagram" width="30" height="30">
+            </a>
+            <a href="https://www.youtube.com" target="_blank">
+                <img src="youtube.png" alt="YouTube" width="30" height="30">
+            </a>
+            <a href="https://www.pinterest.com" target="_blank">
+                <img src="pinterest.png" alt="Pinterest" width="30" height="30">
+            </a>
+        </div>   
+
+        <div id="confirmation-message"></div>                
+</div>
+</body>
+<script>
+
+document.querySelector('button[type="button"]').addEventListener('click', function() {
+        const firstName = document.querySelector('input[placeholder="First Name*"]').value;
+        const lastName = document.querySelector('input[placeholder="Last Name*"]').value;
+        const region = document.querySelector('input[placeholder="Region*"]').value;
+        const email = document.querySelector('input[placeholder="Email*"]').value;
+        const subject = document.querySelector('input[placeholder="Subject"]').value;
+        const message = document.querySelector('textarea[placeholder="Message*"]').value;
+        const salutation = document.querySelector('input[name="salutation"]:checked') ? document.querySelector('input[name="salutation"]:checked').value : '';
+
+        const confirmationMessageDiv = document.getElementById('confirmation-message');
+
+        if (salutation && firstName && lastName && region && email && subject && message) {
+            confirmationMessageDiv.innerHTML = 
+                `Message Sent`;
+            confirmationMessageDiv.style.display = 'block';
+            document.querySelector('form').reset();
+        } else {
+            confirmationMessageDiv.innerHTML = 'Please fill out all fields.';
+            confirmationMessageDiv.style.display = 'block';
+        }
+
+        setTimeout(function() {
+            confirmationMessageDiv.style.display = 'none';
+        }, 2000);
+    });
+</script>
+</html>

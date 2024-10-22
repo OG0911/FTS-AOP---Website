@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RESERVATIONS - FROM THE SOUTH (AOP)</title>
+    <link rel="stylesheet" href="Reservations.css">
+    <link rel="icon" type="image/x-icon" href="Asset-5.png">
+</head>
+<body>
+    <div class="absolute">
+        <div class="absolute inset-0 justify-center">
+            <div class="bg-shape1 bg-teal opacity-50 bg-blur"></div> 
+            <div class="bg-shape2 bg-primary opacity-50 bg-blur"></div> 
+            <div class="bg-shape1 bg-purple opacity-50 bg-blur"></div> 
+        </div>
+      </div>
+    <div class="container">
+        <nav class="menu">
+            <ul>
+                <li><a href="Home.html" title="Go to Home Page">HOME</a></li>
+                <li><a href="Menu.html" title="View Our Menu">MENU</a></li>
+                <li><a href="About Us.html" title="Learn About Us">ABOUT US</a></li>
+                <li><a href="Reservations.html" title="Book a Reservation" style="color: white;">RESERVATIONS</a></li>
+                <li><a href="Contact Us.html" title="Contact Us">CONTACT US</a></li>
+            </ul>
+        </nav>
+        <div class="content">
+            <section class = "banner">
+                <h2>RESERVATION BOOKING</h2>
+                <div class = "card-container">
+                    <div class = "card-img">
+
+                    </div>
+    
+                    <div class = "card-content">
+                        <h3>NB* Reservation are made on a weekly basis, Resets every wednesday.</h3>
+                        <form>
+                            <div class="form-row">
+                                <select name="days" title="Select a day for your reservation" id="day-select">
+                                    <option value="day-select">Select Day</option>
+                                    <option value="sunday">Sunday</option>
+                                    <option value="monday">Monday</option>
+                                    <option value="tuesday">Tuesday</option>
+                                    <option value="wednesday">Wednesday</option>
+                                    <option value="thursday">Thursday</option>
+                                    <option value="friday">Friday</option>
+                                    <option value="saturday">Saturday</option>
+                                </select>
+                        
+                                <select name="hours" title="Select a time for your reservation" id="hour-select">
+                                    <option value="hour-select">Select Hour</option>
+                                    <option value="10">10:00</option>
+                                    <option value="12">12:00</option>
+                                    <option value="14">14:00</option>
+                                    <option value="16">16:00</option>
+                                    <option value="18">18:00</option>
+                                    <option value="20">20:00</option>
+                                    <option value="22">22:00</option>
+                                </select>
+                            </div>
+                        
+                            <div class="form-row">
+                                <input type="text" placeholder="Full Name" id="name-input" title="Enter your full name">
+                                <input type="text" placeholder="Phone Number" id="phone-input" title="Enter your phone number">
+                            </div>
+                        
+                            <div class="form-row">
+                                <input type="number" placeholder="How Many Persons?" min="1" id="persons-input" title="Enter the number of persons">
+                            </div>
+                        </form>
+                        
+                        <!-- Button -->
+                        <input type="button" id="reservation-btn" value="SET BOOKED RESERVATION" title="Click to book your reservation">
+                        
+                        <!-- Confirmation message area -->
+                        <div id="confirmation-message"></div>
+                        
+            </section>
+        </div>
+        <footer>
+            <p>Copyright &copy; 2024 From The South, An OG Production. All rights reserved.</p>
+        </footer>
+        <div class="social-media-icons">
+            <a href="https://www.facebook.com" target="_blank" title="Visit us on Facebook">
+                <img src="facebook.png" alt="Facebook" width="30" height="30">
+            </a>
+            <a href="https://www.twitter.com" target="_blank" title="Follow us on Twitter">
+                <img src="twitter.png" alt="Twitter" width="30" height="30">
+            </a>
+            <a href="https://www.instagram.com" target="_blank" title="Follow us on Instagram">
+                <img src="instagram.png" alt="Instagram" width="30" height="30">
+            </a>
+            <a href="https://www.youtube.com" target="_blank" title="Subscribe to our YouTube channel">
+                <img src="youtube.png" alt="YouTube" width="30" height="30">
+            </a>
+            <a href="https://www.pinterest.com" target="_blank" title="Check us out on Pinterest">
+                <img src="pinterest.png" alt="Pinterest" width="30" height="30">
+            </a>
+        </div>
+    </div>
+</body>
+<script>
+document.querySelector('input[type="button"]').addEventListener('click', function() {
+    const name = document.querySelector('input[placeholder="Full Name"]').value;
+    const phone = document.querySelector('input[placeholder="Phone Number"]').value;
+    const persons = document.querySelector('input[placeholder="How Many Persons?"]').value;
+    const day = document.querySelector('select[name="days"]').value;
+    const hour = document.querySelector('select[name="hours"]').value;
+
+    const confirmationMessageDiv = document.getElementById('confirmation-message');
+
+    if (name && phone && persons && day !== 'day-select' && hour !== 'hour-select') {
+        confirmationMessageDiv.innerHTML = 
+            `Reservation Booked<br>
+            Name: ${name}<br>
+            Phone: ${phone}<br>
+            Persons: ${persons}<br>
+            Day: ${day}<br>
+            Time: ${hour}:00`;
+        confirmationMessageDiv.style.display = 'block';
+        document.querySelector('form').reset();
+    } else {
+        confirmationMessageDiv.innerHTML = 'Please fill out all fields.';
+        confirmationMessageDiv.style.display = 'block';
+    }
+
+    setTimeout(function() {
+        confirmationMessageDiv.style.display = 'none';
+    }, 2000);
+});
+
+
+    </script>
+    
+</html>
+

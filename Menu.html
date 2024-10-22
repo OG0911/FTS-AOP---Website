@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MENU - FROM THE SOUTH (AOP)</title>
+    <link rel="stylesheet" href="Menu.css">
+    <link rel="icon" type="image/x-icon" href="Asset-5.png">
+</head>
+<body>
+    <div class="absolute">
+        <div class="absolute inset-0 justify-center">
+            <div class="bg-shape1 bg-teal opacity-50 bg-blur"></div> 
+            <div class="bg-shape2 bg-primary opacity-50 bg-blur"></div> 
+            <div class="bg-shape1 bg-purple opacity-50 bg-blur"></div> 
+        </div>
+      </div>
+    <div class="container">
+        <nav class="menu">
+            <ul>
+                <li><a href="Home.html">HOME</a></li>
+                <li><a href="Menu.html" style="color: white;">MENU</a></li>
+                <li><a href="About Us.html">ABOUT US</a></li>
+                <li><a href="Reservations.html">RESERVATIONS</a></li>
+                <li><a href="Contact Us.html">CONTACT US</a></li>
+            </ul>
+        </nav>
+        <div class="content">
+            <div class="wrapper">
+                <div class="container2">
+                    <label for="c1" class="card" onclick="toggleZoom(this)" onmouseleave="removeZoom(this)">
+                      <div class="row">
+                        <div class="description">
+                          <h2>CHICKEN GATSBY - R450.00</h2>
+                          <div class="extra-content">
+                            <p>A deliciously loaded sandwich packed with grilled chicken strips, spicy fries, and a tangy sauce. A meal that's as filling as it is flavorful.</p>
+                          </div>
+                        </div>
+                      </div>
+                    </label>
+                  <label for="c2" class="card" onclick="toggleZoom(this)" onmouseleave="removeZoom(this)" >
+                    <div class="row">
+                      <div class="description">
+                        <h2>CHICKEN SHAWARMA - R640.00</h2>
+                        <div class="extra-content">
+                            <p>This dish includes roasted corn, red peppers, and succulent chicken strips, seasoned with a special blend of spices, served with a side of fresh greens and topped with creamy dressing.</p>
+                        </div>
+                      </div>
+                    </div>
+                  </label>
+                  <label for="c3" class="card" onclick="toggleZoom(this)" onmouseleave="removeZoom(this)">
+                    <div class="row">
+                      <div class="description">
+                        <h2>KOTA WITH A TWIST - R150.00</h2>
+                        <div class="extra-content">
+                            <p>This classic South African street food is given a gourmet touch with premium fillings and sauces, creating a unique experience in every bite.</p>
+                          </div>
+                      </div>
+                    </div>
+                  </label>
+                  <label for="c4" class="card" onclick="toggleZoom(this)" onmouseleave="removeZoom(this)">
+                    <div class="row">
+                      <div class="description">
+                        <h2>LOADED FRIES SUPREME - R260.00</h2>
+                        <div class="extra-content">
+                            <p>Crispy fries loaded with melted cheese, bacon bits, jalapeños, and drizzled with a tangy ranch sauce, perfect for sharing or enjoying solo.</p>
+                          </div>
+                      </div>
+                    </div>
+                  </label>
+                  <label for="c5" class="card" onclick="toggleZoom(this)" onmouseleave="removeZoom(this)">
+                    <div class="row">
+                      <div class="description">
+                        <h2>SMOKED BBQ DAGWOOD - R340.00</h2>
+                        <div class="extra-content">
+                            <p>This towering Dagwood sandwich features layers of smoked BBQ meat, fresh veggies, and melted cheese, all topped with a smoky BBQ sauce.</p>
+                          </div>
+                      </div>
+                    </div>
+                  </label>
+                  <label for="c6" class="card" onclick="toggleZoom(this)" onmouseleave="removeZoom(this)">
+                    <div class="row">
+                      <div class="description">
+                        <h2>GOURMET HAWAIIAN PIZZA - R360.00</h2>
+                        <div class="extra-content">
+                            <p>A fresh, hand-tossed pizza topped with gourmet vegetables and a blend of cheeses. A treat for both vegetarians and pizza lovers.</p>
+                          </div>
+                      </div>
+                    </div>
+                  </label>
+                </div>
+              </div>
+        </div>
+        
+        <footer>
+            <p>Copyright &copy; 2024 From The South, An OG Production. All rights reserved.</p>
+        </footer>
+        <div class="social-media-icons">
+            <a href="https://www.facebook.com" target="_blank">
+                <img src="facebook.png" alt="Facebook" width="30" height="30">
+            </a>
+            <a href="https://www.twitter.com" target="_blank">
+                <img src="twitter.png" alt="Twitter" width="30" height="30">
+            </a>
+            <a href="https://www.instagram.com" target="_blank">
+                <img src="instagram.png" alt="Instagram" width="30" height="30">
+            </a>
+            <a href="https://www.youtube.com" target="_blank">
+                <img src="youtube.png" alt="YouTube" width="30" height="30">
+            </a>
+            <a href="https://www.pinterest.com" target="_blank">
+                <img src="pinterest.png" alt="Pinterest" width="30" height="30">
+            </a>
+        </div>
+        
+    </div>
+</body>
+<script>
+    function toggleZoom(card) {
+        card.classList.toggle('zoom');
+        scrollToCard(card);
+    }
+
+    function removeZoom(card) {
+        card.classList.remove('zoom');
+    }
+
+    function scrollToCard(card) {
+        var viewportHeight = window.innerHeight;
+        var cardHeight = card.offsetHeight;
+        var cardTop = card.getBoundingClientRect().top;
+        var scrollDistance = cardTop - (viewportHeight / 2) + (cardHeight / 2);
+        window.scrollBy({ top: scrollDistance, behavior: 'smooth' });
+    }
+    
+// Function to add blur effect to all cards except the clicked card
+function addBlurExceptClicked(clickedCard) {
+    document.querySelectorAll('.card').forEach(function(card) {
+        if (card !== clickedCard) {
+            card.classList.add('blur'); // Blur other cards
+        } else {
+            card.classList.remove('blur'); // Remove blur from clicked card
+        }
+    });
+
+    // Blur the navigation links, footer, and social media icons
+    document.querySelector('.menu').classList.add('blur');
+    document.querySelector('footer').classList.add('blur');
+    document.querySelector('.social-media-icons').classList.add('blur');
+}
+
+function removeBlurFromAll() {
+    // Remove blur from all cards
+    document.querySelectorAll('.card').forEach(function(card) {
+        card.classList.remove('blur');
+    });
+
+    // Remove blur from navigation, footer, and social media icons
+    document.querySelector('.menu').classList.remove('blur');
+    document.querySelector('footer').classList.remove('blur');
+    document.querySelector('.social-media-icons').classList.remove('blur');
+}
+
+// Add event listeners to each card
+document.querySelectorAll('.card').forEach(function(card) {
+    card.addEventListener('click', function() {
+        addBlurExceptClicked(card);
+    });
+    card.addEventListener('mouseleave', function() {
+        removeBlurFromAll();
+    });
+});
+
+
+document.querySelectorAll('.card').forEach(function(card) {
+    card.addEventListener('mouseenter', function() {
+        removeBlurFromAll(); // Remove blur from all cards
+        card.classList.remove('blur'); // Remove blur from hovered card
+    });
+    card.addEventListener('mouseleave', function() {
+        removeBlurFromAll(); // Remove blur from all cards
+    });
+});
+
+// Add event listener to remove blur when mouse leaves card
+document.querySelectorAll('.container').forEach(function(container) {
+container.addEventListener('mouseleave', function() {
+removeBlurFromAll();
+});
+});
+
+document.querySelectorAll('.card').forEach(function(card) {
+card.addEventListener('click', function() {
+addBlurExceptClicked(card);
+});
+
+});
+
+function toggleZoom(card) {
+    // Toggle the zoom class for the clicked card
+    card.classList.toggle('zoom');
+    // Show or hide extra content
+    toggleExtraContent(card);
+    scrollToCard(card);
+}
+
+function toggleExtraContent(card) {
+    // Find the extra content inside the clicked card
+    var extraContent = card.querySelector('.extra-content');
+    if (extraContent) {
+        // Toggle visibility by adding/removing the 'show' class
+        if (card.classList.contains('zoom')) {
+            extraContent.style.display = 'block';
+        } else {
+            extraContent.style.display = 'none';
+        }
+    }
+}
+
+</script>
+</html>
